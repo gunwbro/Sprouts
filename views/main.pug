@@ -17,7 +17,7 @@ block content
     .twits
       form#hashtag-form(action='/post/hashtag')
         input(type='text' name='hashtag' placeholder='태그 검색')
-        button.btn 검색
+        button#search-btn.btn 검색
       for twit in twits
         .twit
           input.twit-user-id(type='hidden' value=twit.user.id)
