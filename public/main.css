@@ -1,5 +1,5 @@
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; height: 100%; }
+html, body { margin: 0; padding: 0; height: 100%; background-color: #fff0f5; }
 .btn {
   display: inline-block;
   padding: 0 5px;
@@ -8,7 +8,7 @@ html, body { margin: 0; padding: 0; height: 100%; }
   border-radius: 4px;
   background: white;
   border: 1px solid silver;
-  color: crimson;
+  color: #24292E;
   height: 37px;
   line-height: 37px;
   vertical-align: top;
@@ -39,12 +39,13 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   .profile-wrap { width: 290px; margin-bottom: 0; }
 }
 .profile {
+  position: relative;
   text-align: left;
   padding: 10px;
   margin-right: 10px;
-  border-radius: 4px;
-  border: 1px solid silver;
-  background: lightcoral;
+  /* border-radius: 4px; */
+  border: 1px solid #ffffff;
+  background: #97e5ef;
 }
 .user-name { font-weight: bold; font-size: 18px; }
 .count { font-weight: bold; color: crimson; font-size: 18px; }
@@ -59,7 +60,7 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
 #twit-form {
   border-bottom: 1px solid silver;
   padding: 10px;
-  background: lightcoral;
+  background: #97e5ef;
   overflow: hidden;
 }
 #img-preview { max-width: 100%; }
@@ -67,9 +68,10 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   float: left;
   cursor: pointer;
   border-radius: 4px;
-  border: 1px solid crimson;
+  /* border: 1px solid #24292E; */
   padding: 0 10px;
-  color: white;
+  color: #24292E;
+  background: white;
   font-size: 12px;
   height: 37px;
   line-height: 37px;
@@ -78,31 +80,52 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
 #twit { width: 100%; min-height: 72px; }
 #twit-btn {
   float: right;
-  color: white;
-  background: crimson;
+  color: #24292E;
+  background: white;
   border: none;
 }
+#logout {
+  position: absolute;
+  margin-right: 10px;
+  right: 0;
+}
 .twit {
-  border: 1px solid silver;
+  border: 1px solid white;
   border-radius: 4px;
   padding: 10px;
   position: relative;
   margin-bottom: 10px;
+  background-color: #FFFFFF;
 }
 .twit-author { display: inline-block; font-weight: bold; margin-right: 10px; }
 .twit-follow {
   padding: 1px 5px;
-  background: #fff;
-  border: 1px solid silver;
+  background: #A6DCEF;
+  border: 1px solid white;
   border-radius: 5px;
-  color: crimson;
+  color: #24292E
   font-size: 12px;
   cursor: pointer;
 }
+.twit-unfollow {
+  padding: 1px 5px;
+  background: #F2AAAA;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: #24292e;
+  font-size: 12px;
+  cursor: pointer;
+}
+.twit-del {
+  position: absolute;
+  background: white;
+  border: white;
+  right: 0;
+}
 .twit-img { text-align: center; }
 .twit-img img { max-width: 75%; }
-.error-message { color: red; font-weight: bold; }
+.error-message { color: #24292E; font-weight: bold; }
 #search-form { text-align: right; }
 #join-form { padding: 10px; text-align: center; }
-#hashtag-form { text-align: right; }
+#hashtag-form { text-align: right; margin: 5px;}
 footer { text-align: center; }

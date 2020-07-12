@@ -76,6 +76,16 @@ router.get('/hashtag', async (req, res, next) => {
     console.error(error);
     return next(error);
   }
+});
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const post = await Post.destroy({ where: { id: req.params.id } });
+    res.json(post);
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
 })
 
 module.exports = router;
