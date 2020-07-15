@@ -34,6 +34,12 @@ block content
           if twit.img
             .twit-img
               img(src=twit.img alt='섬네일')
+          .twit-bottom
+            -const heart = user && user.HPosts.map(h => h.id).includes(twit.id);
+            if user && !heart
+              button.twit-unheart 💛
+            else if user && heart
+              button.twit-heart 💜
   script.
     if (document.getElementById('img')) {
       document.getElementById('img').addEventListener('change', function (e) {
@@ -107,7 +113,7 @@ block content
       tag.addEventListener('click', () => {
         let isLoggedIn = document.querySelector('#my-id');
         if (isLoggedIn) {
-          let postId = tag.parentNode.querySelector('.twit-id').value
+          let postId = tag.parentNode.querySelector('.twit-id').value;
           if (confirm('게시물을 삭제하시겠습니까?')) {
             let xhr = new XMLHttpRequest();
             xhr.onload = () => {
@@ -122,5 +128,40 @@ block content
           }
         }
       })
-
+    });
+    document.querySelectorAll('.twit-unheart').forEach((tag) => {
+      tag.addEventListener('click', () => {
+        let isLoggedIn = document.querySelector('#my-id');
+        if (isLoggedIn) {
+          let postId = tag.parentNode.parentNode.querySelector('.twit-id').value;
+          let xhr = new XMLHttpRequest();
+          xhr.onload = () => {
+            if (xhr.status === 200) {
+                location.reload();
+            } else {
+                console.error(xhr.responseText);
+            }
+          };
+          xhr.open('POST', '/post/' + postId + '/heart');
+          xhr.send();
+        }
+      })
+    });
+    document.querySelectorAll('.twit-heart').forEach((tag) => {
+      tag.addEventListener('click', () => {
+        let isLoggedIn = document.querySelector('#my-id');
+        if (isLoggedIn) {
+          let postId = tag.parentNode.parentNode.querySelector('.twit-id').value
+          let xhr = new XMLHttpRequest();
+          xhr.onload = () => {
+            if (xhr.status === 200) {
+                location.reload();
+            } else {
+                console.error(xhr.responseText);
+            }
+          };
+          xhr.open('DELETE', '/post/' + postId + '/unheart');
+          xhr.send();
+        }
+      })
     });

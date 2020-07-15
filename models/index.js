@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config')[env]; // 뒤에붙은 [env] 는 무슨 의미 일까?
+const config = require('../config/config')[env]; // 뒤에붙은 [env] 는 무슨 문법 일까?
 const db = {};
 
 const sequelize = new Sequelize(
@@ -25,5 +25,14 @@ db.User.belongsToMany(db.User, {
   foreignKey: "followerId",
   as: "Followings",
   through: "Follow",
+});
+
+db.User.belongsToMany(db.Post, {
+  as: "HPosts",
+  through: "Heart",
+});
+db.Post.belongsToMany(db.User, {
+  as: "HUsers",
+  through: "Heart",
 });
 module.exports = db;

@@ -100,14 +100,15 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   position: relative;
   margin-bottom: 10px;
   background-color: #FFFFFF;
+  min-height: 100px;
 }
-.twit-author { display: inline-block; font-weight: bold; margin-right: 10px; }
+.twit-author { display: inline-block; font-weight: bold; margin-right: 10px; margin-bottom: 5px;}
 .twit-follow {
   padding: 1px 5px;
   background: #A6DCEF;
   border: 1px solid white;
   border-radius: 5px;
-  color: #24292E
+  color: #24292E;
   font-size: 12px;
   cursor: pointer;
 }
@@ -121,10 +122,20 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   cursor: pointer;
 }
 .twit-del {
+  background: white;
+  border: white;
+  float: right;
+}
+.twit-heart, .twit-unheart {
   position: absolute;
   background: white;
   border: white;
-  right: 0;
+  right: 5px;
+  bottom: 5px;
+}
+.twit-bottom {
+  color: white;
+  cursor: pointer;
 }
 .twit-img { text-align: center; }
 .twit-img img { max-width: 75%; }

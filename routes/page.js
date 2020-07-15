@@ -16,7 +16,8 @@ router.get("/join", isNotLoggedIn, (req, res) => {
   });
 });
 
-router.get("/", (req, res, next) => {
+router.get("/", async (req, res, next) => {
+  const po = await Post.findOne({ where : { id: 1 }});
   Post.findAll({
     include: {
       model: User,
